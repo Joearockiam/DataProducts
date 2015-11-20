@@ -1,7 +1,7 @@
 library(shiny)
 library(ggplot2)
 
-data <- fread('aggregate_data.csv')
+data <- fread('data/aggregate_data.csv')
 data$EVTYPE <- toupper(data$EVTYPE)
 evtypes <<- sort(unique(data$EVTYPE))
 
