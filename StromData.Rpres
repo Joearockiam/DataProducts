@@ -1,0 +1,47 @@
+StromData - Coursera shiny project
+========================================================
+author: Joseph
+date: `r format(Sys.Date(), format = "%B %d %Y")`
+
+<small>
+Application **StormData Explorer** facilitate user to explore the severe weather events which can cause both public health and economic problems.
+</small>
+```{r setup, include=FALSE}
+library(shiny) 
+library(ggplot2)
+opts_chunk$set(cache=TRUE)
+data <- read.csv('aggregate_data.csv')
+evtypes <<- sort(unique(data$EVTYPE))
+```
+
+Data Set
+========================================================
+The Dataset is the same file we used for the Cousera's Reproduciable Research Course.This is the aggregated data from the original data set. This data set have the following features.
+
+- YEAR
+- STATE
+- EVTYPE
+- COUNT
+- FATALITIES
+- INJURIES
+- PROPDMG(Property damage)
+- CROPDMG(Crop damage)
+
+========================================================
+```{r}
+summary(data)
+```
+
+
+Shiny Framework
+========================================================
+The Shiny framework is used develop the application. 
+ - In the application, left side options are available for the users to select the year range and also the event types.
+ - Based on the user selection, it will dynamically adjust the plots.
+
+Interactive Plots(using ggplot)
+========================================================
+The plots are interactive using ggplot.
+
+![alt text](StormData_Plot.jpg)
+
