@@ -10,7 +10,7 @@ Application **StormData Explorer** facilitate user to explore the severe weather
 library(shiny) 
 library(ggplot2)
 opts_chunk$set(cache=TRUE)
-data <- read.csv('aggregate_data.csv')
+data <- read.csv('data/aggregate_data.csv')
 evtypes <<- sort(unique(data$EVTYPE))
 ```
 
@@ -44,4 +44,8 @@ Interactive Plots(using ggplot)
 The plots are interactive using ggplot.
 
 ![alt text](StormData_Plot.jpg)
+
+
+You can find the this shiny application at url:<a href="https://joearockiam.shinyapps.io/DataProducts">https://joearockiam.shinyapps.io/DataProducts</a> 
+
 

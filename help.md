@@ -13,7 +13,7 @@ Storms and other severe weather events can cause both public health and economic
 
 Source code for the project is available on the [GitHub](https://github.com/Joearockiam/DataProducts).
 
-The presentation for the project can be found [here](http://rpubs.com/joearockiam/127711)
+The presentation for the project can be found [here](http://rpubs.com/joearockiam/128023)
 
 You can adjust date range and event types using control panel located on the left side.The result is shown in the main pannel on the right sideof the page.
 Also filtered dataset can be downloaded using data tab.

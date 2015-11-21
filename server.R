@@ -1,4 +1,6 @@
 library(shiny)
+library(data.table)
+library(reshape2)
 library(ggplot2)
 
 data <- fread('data/aggregate_data.csv')
@@ -27,14 +29,12 @@ shinyServer(
   
   dataTable <- reactive(
 {
-#   dt.agg()[, list(State=state.abb[match(STATE, tolower(state.name))],
-#                   Count=COUNT,Injuries=INJURIES,Fatalities=FATALITIES,Property.damage=PROPDMG,Crops.damage=CROPDMG)]   
   data.agg()
 })
 
   output$mytable <- renderDataTable(
 {
-  dataTable()}, options = list(bFilter = FALSE, iDisplayLength = 10))
+  dataTable()}, options = list(pageLength = 10))
 
 
 output$myplot <- renderPlot({
@@ -54,9 +54,6 @@ output$plotpopulationImpact <- renderPlot({
 #Economic impact
 output$ploteconomicImpact <- renderPlot({
   economydata <- melt(dat_aggregatebyyear()[, list(Year=YEAR, Propety=PROPDMG, Crops=CROPDMG)],id='Year')
-#   p2 <- ggplot(populationdata, aes(x=Year, y=value, colour=variable)) +
-#    geom_line(size=1.5) + ggtitle("Economic Impact")
-#   
     p2 <- ggplot(economydata, aes(x=Year, y=value)) +
     geom_boxplot(aes(fill = factor(variable)))+ ggtitle("Economic Impact")
   print(p2)
